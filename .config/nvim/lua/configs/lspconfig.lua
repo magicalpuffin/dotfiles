@@ -1,4 +1,3 @@
--- EXAMPLE
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
@@ -8,10 +7,7 @@ local servers = {
   "lua_ls",
   "html",
   "cssls",
-  "tsserver",
-  "eslint",
   "svelte",
-  "tailwindcss",
 }
 
 -- lsps with default config
@@ -24,16 +20,42 @@ for _, lsp in ipairs(servers) do
 end
 
 -- typescript
--- lspconfig.tsserver.setup {
---   on_attach = on_attach,
---   on_init = on_init,
---   capabilities = capabilities,
--- }
---
--- lspconfig.biome.setup {
---   on_attach = on_attach,
---   on_init = on_init,
---   capabilities = capabilities,
--- }
---
--- lspconfig.svelte.setup {}
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  -- init_options = {
+  --   preferences = {
+  --     disableSuggestions = true,
+  --   },
+  -- },
+}
+
+-- biome
+lspconfig.biome.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+}
+
+-- eslint
+lspconfig.eslint.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = {
+    "svelte",
+  },
+}
+
+-- tailwindcss
+lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = {
+    "html",
+    "css",
+    "svelte",
+  },
+}

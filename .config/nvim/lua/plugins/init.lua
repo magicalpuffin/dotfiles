@@ -22,6 +22,7 @@ return {
         "html-lsp",
         "css-lsp",
         "tailwindcss-language-server",
+        "rustywind",
         "rust-analyzer",
         "ruff",
         "eslint-lsp",
@@ -54,5 +55,22 @@ return {
         "svelte",
       },
     },
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "html",
+      "svelte",
+    },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  {
+    "danymat/neogen",
+    ft = { "lua", "rust", "python", "javascrip", "typescript" },
+    config = function()
+      require("neogen").setup { snippet_engine = "luasnip" }
+    end,
   },
 }

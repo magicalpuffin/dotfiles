@@ -3,9 +3,9 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    javascript = { "prettier" },
-    typescript = { "prettier" },
-    svelte = { "prettier" },
+    javascript = { "biome" },
+    typescript = { "biome" },
+    svelte = { "prettier", "rustywind" },
   },
 
   format_on_save = {
