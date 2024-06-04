@@ -68,9 +68,17 @@ return {
   },
   {
     "danymat/neogen",
-    ft = { "lua", "rust", "python", "javascrip", "typescript" },
+    cmd = "Neogen",
     config = function()
       require("neogen").setup { snippet_engine = "luasnip" }
+    end,
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    event = { "BufReadPost" },
+    dependencies = { "kevinhwang91/promise-async" },
+    config = function()
+      require "configs.ufo"
     end,
   },
 }
