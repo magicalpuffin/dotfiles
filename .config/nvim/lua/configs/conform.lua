@@ -3,8 +3,8 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    javascript = { "biome" },
-    typescript = { "biome" },
+    javascript = { "biome-check" },
+    typescript = { "biome-check" },
     svelte = { "prettier", "rustywind" },
   },
 
