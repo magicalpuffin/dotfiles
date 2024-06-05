@@ -13,7 +13,6 @@ local servers = {
   "lua_ls",
   "html",
   "cssls",
-  "svelte",
 }
 
 -- lsps with default config
@@ -42,6 +41,10 @@ lspconfig.biome.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  filetypes = {
+    "typescript",
+    "javascript",
+  },
 }
 
 -- eslint
@@ -52,6 +55,21 @@ lspconfig.eslint.setup {
   filetypes = {
     "svelte",
   },
+}
+
+lspconfig.svelte.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = { "*.js", "*.ts" },
+      callback = function(ctx)
+        -- Here use ctx.match instead of ctx.file
+        client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+      end,
+    })
+  end,
+  init = on_init,
+  capabilities = capabilities,
 }
 
 -- tailwindcss
