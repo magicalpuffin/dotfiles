@@ -81,4 +81,17 @@ return {
       require "configs.ufo"
     end,
   },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      local cmp = require "cmp"
+      cmp.setup {
+        preselect = cmp.PreselectMode.None,
+        mapping = cmp.mapping.preset.insert {
+          ["<ArrowUp>"] = cmp.mapping.select_prev_item(),
+          ["ArrowDown>"] = cmp.mapping.select_next_item(),
+        },
+      }
+    end,
+  },
 }
