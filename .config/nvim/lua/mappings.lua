@@ -8,4 +8,8 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 map("n", "<leader>da", "<cmd>lua vim.diagnostic.open_float()<CR>")
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+local api = require "nvim-tree.api"
+map("n", "<leader>E", function()
+  api.tree.open { current_window = true }
+end, { noremap = true })
