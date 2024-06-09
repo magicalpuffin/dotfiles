@@ -13,6 +13,8 @@ local servers = {
   "lua_ls",
   "html",
   "cssls",
+  "yamlls",
+  "taplo",
 }
 
 -- lsps with default config
@@ -44,6 +46,7 @@ lspconfig.biome.setup {
   filetypes = {
     "typescript",
     "javascript",
+    "json",
   },
 }
 

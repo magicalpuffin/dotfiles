@@ -3,6 +3,7 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
+    json = { "biome-check" },
     javascript = { "biome-check" },
     typescript = { "biome-check" },
     svelte = { "prettier", "rustywind" },

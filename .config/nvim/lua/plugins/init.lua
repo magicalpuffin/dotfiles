@@ -21,6 +21,8 @@ return {
         "stylua",
         "html-lsp",
         "css-lsp",
+        "yaml-language-server",
+        "taplo",
         "tailwindcss-language-server",
         "rustywind",
         "rust-analyzer",
