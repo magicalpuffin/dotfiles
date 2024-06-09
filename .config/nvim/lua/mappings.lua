@@ -5,7 +5,8 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+map("c", "<DOWN>", "<C-n>", { desc = "Arrow down  next command" })
+map("c", "<UP>", "<C-p>", { desc = "Arrow up  previous command" })
 
 map("n", "<leader>da", "<cmd>lua vim.diagnostic.open_float()<CR>")
 
