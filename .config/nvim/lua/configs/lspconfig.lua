@@ -27,15 +27,22 @@ for _, lsp in ipairs(servers) do
 end
 
 -- typescript
-lspconfig.tsserver.setup {
+-- lspconfig.tsserver.setup {
+--   on_attach = on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+-- init_options = {
+--   preferences = {
+--     disableSuggestions = true,
+--   },
+-- },
+-- }
+
+-- vtsls
+lspconfig.vtsls.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-  -- init_options = {
-  --   preferences = {
-  --     disableSuggestions = true,
-  --   },
-  -- },
 }
 
 -- biome
@@ -47,6 +54,7 @@ lspconfig.biome.setup {
     "typescript",
     "javascript",
     "json",
+    "jsonc",
   },
 }
 

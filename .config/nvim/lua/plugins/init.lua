@@ -30,6 +30,7 @@ return {
         "eslint-lsp",
         "prettier",
         "biome",
+        "vtsls",
         "typescript-language-server",
         "svelte-language-server",
       },

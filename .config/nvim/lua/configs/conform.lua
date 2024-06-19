@@ -5,6 +5,7 @@ local options = {
     html = { "prettier" },
     toml = { "taplo" },
     json = { "biome-check" },
+    jsonc = { "biome-check" },
     javascript = { "biome-check" },
     typescript = { "biome-check" },
     svelte = { "prettier", "rustywind" },
