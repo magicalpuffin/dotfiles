@@ -1,5 +1,6 @@
 local options = {
   formatters_by_ft = {
+    python = { "ruff_format" },
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },

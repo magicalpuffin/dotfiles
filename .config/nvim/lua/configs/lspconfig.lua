@@ -10,6 +10,8 @@ capabilities.textDocument.foldingRange = {
 
 local lspconfig = require "lspconfig"
 local servers = {
+  "pyright",
+  "ruff",
   "lua_ls",
   "html",
   "cssls",

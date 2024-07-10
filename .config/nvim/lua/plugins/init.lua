@@ -17,6 +17,8 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "pyright",
+        "ruff",
         "lua-language-server",
         "stylua",
         "html-lsp",
@@ -26,7 +28,6 @@ return {
         "tailwindcss-language-server",
         "rustywind",
         "rust-analyzer",
-        "ruff",
         "eslint-lsp",
         "prettier",
         "biome",
