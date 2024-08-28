@@ -8,6 +8,10 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
+-- use svelte fallback watcher
+local svelte_lsp_capabilities = vim.tbl_deep_extend("force", {}, capabilities)
+svelte_lsp_capabilities.workspace = { didChangeWatchedFiles = false }
+
 local lspconfig = require "lspconfig"
 local servers = {
   "pyright",
@@ -71,20 +75,9 @@ lspconfig.eslint.setup {
 }
 
 lspconfig.svelte.setup {
-  -- on_attach = on_attach,
-  on_attach = function(client, bufnr)
-    -- on_attach(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      pattern = { "*.js", "*.ts" },
-      group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
-      callback = function(ctx)
-        -- Here use ctx.match instead of ctx.file
-        client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-      end,
-    })
-  end,
+  on_attach = on_attach,
   init = on_init,
-  capabilities = capabilities,
+  capabilities = svelte_lsp_capabilities,
 }
 
 -- tailwindcss
