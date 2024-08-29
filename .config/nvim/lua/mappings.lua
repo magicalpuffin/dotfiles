@@ -4,7 +4,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("c", "<DOWN>", "<C-n>", { desc = "Arrow down  next command" })
 map("c", "<UP>", "<C-p>", { desc = "Arrow up  previous command" })
 
