@@ -71,9 +71,14 @@ return {
     ft = {
       "html",
       "svelte",
+      "svx",
     },
     config = function()
-      require("nvim-ts-autotag").setup()
+      require("nvim-ts-autotag").setup {
+        aliases = {
+          ["svx"] = "svelte",
+        },
+      }
     end,
   },
   {

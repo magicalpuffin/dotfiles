@@ -71,6 +71,7 @@ lspconfig.eslint.setup {
   capabilities = capabilities,
   filetypes = {
     "svelte",
+    "svx",
   },
 }
 
@@ -78,6 +79,10 @@ lspconfig.svelte.setup {
   on_attach = on_attach,
   init = on_init,
   capabilities = svelte_lsp_capabilities,
+  filetypes = {
+    "svelte",
+    "svx",
+  },
 }
 
 -- tailwindcss
@@ -89,5 +94,6 @@ lspconfig.tailwindcss.setup {
     "html",
     "css",
     "svelte",
+    "svx",
   },
 }
