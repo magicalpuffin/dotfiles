@@ -71,7 +71,6 @@ lspconfig.eslint.setup {
   capabilities = capabilities,
   filetypes = {
     "svelte",
-    "svx",
   },
 }
 
@@ -81,7 +80,6 @@ lspconfig.svelte.setup {
   capabilities = svelte_lsp_capabilities,
   filetypes = {
     "svelte",
-    "svx",
   },
 }
 
@@ -94,6 +92,5 @@ lspconfig.tailwindcss.setup {
     "html",
     "css",
     "svelte",
-    "svx",
   },
 }

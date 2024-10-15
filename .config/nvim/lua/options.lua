@@ -11,4 +11,4 @@ vim.filetype.add {
     svx = "svx",
   },
 }
-vim.treesitter.language.register("svelte", "svx")
+vim.treesitter.language.register("markdown", "svx")

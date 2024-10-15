@@ -10,7 +10,7 @@ local options = {
     javascript = { "biome-check" },
     typescript = { "biome-check" },
     svelte = { "prettier", "rustywind" },
-    svx = { "prettier", "rustywind" },
+    svx = { "prettier" },
   },
 
   format_on_save = {
