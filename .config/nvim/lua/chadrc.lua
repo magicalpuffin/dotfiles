@@ -49,14 +49,14 @@
 ---@type ChadrcConfig
 local M = {}
 
--- local dark_green = "#65926A"
+local dark_green = "#65926A"
 
 M.base46 = {
   theme = "github_dark",
-  -- hl_override = {
-  --   Comment = { italic = true, fg = "light_grey" },
-  --   ["@comment"] = { italic = true, fg = dark_green },
-  -- },
+  hl_override = {
+    Comment = { italic = true, fg = "light_grey" },
+    ["@comment"] = { italic = true, fg = dark_green },
+  },
   -- statusline = {
   --   modules = {
   --     file = function()
