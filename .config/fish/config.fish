@@ -16,3 +16,9 @@ set PATH $PATH $VOLTA_HOME/bin
 
 # turso
 set PATH $PATH ~/.turso/
+
+# nvidia cuda
+set NVCC_CCBIN '/usr/bin/g++-13'
+set CUDA_PATH /opt/cuda
+
+set PATH $PATH '/opt/cuda/bin' '/opt/cuda/nsight_compute' '/opt/cuda/nsight_systems/bin'
