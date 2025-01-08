@@ -12,7 +12,7 @@ set PATH $PATH ~/.cargo/bin/ ~/.npm-global/bin
 
 # volta
 set VOLTA_HOME $HOME/.volta
-set PATH $PATH $VOLTA_HOME/bin
+set PATH $VOLTA_HOME/bin $PATH
 
 # turso
 set PATH $PATH ~/.turso/
