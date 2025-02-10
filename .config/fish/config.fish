@@ -14,9 +14,6 @@ set PATH $PATH ~/.cargo/bin/ ~/.npm-global/bin
 set VOLTA_HOME $HOME/.volta
 set PATH $VOLTA_HOME/bin $PATH
 
-# turso
-set PATH $PATH ~/.turso/
-
 # nvidia cuda
 set NVCC_CCBIN '/usr/bin/g++-13'
 set CUDA_PATH /opt/cuda
