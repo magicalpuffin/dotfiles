@@ -94,6 +94,10 @@ lspconfig.biome.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  root_dir = function()
+    -- override for biome to apply regardless of biome.json
+    return vim.fn.getcwd()
+  end,
   filetypes = {
     "typescript",
     "javascript",
