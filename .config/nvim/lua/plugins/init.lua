@@ -29,6 +29,7 @@ return {
         "stylua",
         "html-lsp",
         "css-lsp",
+        "json-lsp",
         "yaml-language-server",
         "taplo",
         "tailwindcss-language-server",

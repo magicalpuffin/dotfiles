@@ -18,6 +18,7 @@ local servers = {
   "ruff",
   "html",
   "cssls",
+  "jsonls",
   "yamlls",
   "taplo",
 }
