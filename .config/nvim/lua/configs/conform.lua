@@ -2,15 +2,16 @@ local options = {
   formatters_by_ft = {
     python = { "ruff_format" },
     lua = { "stylua" },
-    css = { "prettier" },
-    html = { "prettier" },
+    css = { "prettierd" },
+    html = { "prettierd" },
     toml = { "taplo" },
+    yaml = { "yamlfmt" },
     json = { "biome-check" },
     jsonc = { "biome-check" },
     javascript = { "biome-check" },
     typescript = { "biome-check" },
-    svelte = { "prettier", "rustywind" },
-    svx = { "prettier" },
+    svelte = { "prettierd", "rustywind" },
+    svx = { "prettierd" },
   },
 
   format_on_save = {
