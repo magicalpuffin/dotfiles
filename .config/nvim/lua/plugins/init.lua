@@ -37,7 +37,7 @@ return {
         "rustywind",
         "rust-analyzer",
         "eslint-lsp",
-        "prettier",
+        "prettierd",
         "biome",
         "vtsls",
         "typescript-language-server",
