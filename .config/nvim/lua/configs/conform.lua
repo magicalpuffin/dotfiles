@@ -5,6 +5,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     toml = { "taplo" },
+    yaml = { "yamlfmt" },
     json = { "biome-check" },
     jsonc = { "biome-check" },
     javascript = { "biome-check" },

@@ -31,6 +31,7 @@ return {
         "css-lsp",
         "json-lsp",
         "yaml-language-server",
+        "yamlfmt",
         "taplo",
         "tailwindcss-language-server",
         "rustywind",
