@@ -12,7 +12,7 @@ capabilities.textDocument.foldingRange = {
 local svelte_lsp_capabilities = vim.tbl_deep_extend("force", {}, capabilities)
 svelte_lsp_capabilities.workspace = { didChangeWatchedFiles = false }
 
-local lspconfig = require "lspconfig"
+local lspconfig = vim.lsp.config
 local servers = {
   "pyright",
   "ruff",
@@ -25,11 +25,12 @@ local servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig(lsp, {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
-  }
+  })
+  vim.lsp.enable(lsp)
 end
 
 -- lua
@@ -70,6 +71,7 @@ vim.lsp.config("lua_ls", {
     Lua = {},
   },
 })
+vim.lsp.enable "lua_ls"
 
 -- typescript
 -- lspconfig.tsserver.setup {
@@ -84,14 +86,15 @@ vim.lsp.config("lua_ls", {
 -- }
 
 -- vtsls
-lspconfig.vtsls.setup {
+lspconfig("vtsls", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-}
+})
+vim.lsp.enable "vtsls"
 
 -- biome
-lspconfig.biome.setup {
+lspconfig("biome", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -105,29 +108,32 @@ lspconfig.biome.setup {
     "json",
     "jsonc",
   },
-}
+})
+vim.lsp.enable "biome"
 
 -- eslint
-lspconfig.eslint.setup {
+lspconfig("eslint", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   filetypes = {
     "svelte",
   },
-}
+})
+vim.lsp.enable "eslint"
 
-lspconfig.svelte.setup {
+lspconfig("svelte", {
   on_attach = on_attach,
   init = on_init,
   capabilities = svelte_lsp_capabilities,
   filetypes = {
     "svelte",
   },
-}
+})
+vim.lsp.enable "svelte"
 
 -- tailwindcss
-lspconfig.tailwindcss.setup {
+lspconfig("tailwindcss", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -136,4 +142,5 @@ lspconfig.tailwindcss.setup {
     "css",
     "svelte",
   },
-}
+})
+vim.lsp.enable "tailwindcss"
