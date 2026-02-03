@@ -12,7 +12,6 @@ capabilities.textDocument.foldingRange = {
 local svelte_lsp_capabilities = vim.tbl_deep_extend("force", {}, capabilities)
 svelte_lsp_capabilities.workspace = { didChangeWatchedFiles = false }
 
-local lspconfig = vim.lsp.config
 local servers = {
   "pyright",
   "ruff",
@@ -25,7 +24,7 @@ local servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig(lsp, {
+  vim.lsp.config(lsp, {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
@@ -74,19 +73,20 @@ vim.lsp.config("lua_ls", {
 vim.lsp.enable "lua_ls"
 
 -- typescript
--- lspconfig.tsserver.setup {
+-- lspconfig("tsserver", {
 --   on_attach = on_attach,
 --   on_init = on_init,
 --   capabilities = capabilities,
--- init_options = {
---   preferences = {
---     disableSuggestions = true,
+--   init_options = {
+--     preferences = {
+--       disableSuggestions = true,
+--     },
 --   },
--- },
--- }
+-- })
+-- vim.lsp.enable "tsserver"
 
 -- vtsls
-lspconfig("vtsls", {
+vim.lsp.config("vtsls", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -94,7 +94,7 @@ lspconfig("vtsls", {
 vim.lsp.enable "vtsls"
 
 -- biome
-lspconfig("biome", {
+vim.lsp.config("biome", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -105,6 +105,8 @@ lspconfig("biome", {
   filetypes = {
     "typescript",
     "javascript",
+    "typescriptreact",
+    "javascriptreact",
     "json",
     "jsonc",
   },
@@ -112,17 +114,19 @@ lspconfig("biome", {
 vim.lsp.enable "biome"
 
 -- eslint
-lspconfig("eslint", {
+vim.lsp.config("eslint", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   filetypes = {
+    "typescriptreact",
+    "javascriptreact",
     "svelte",
   },
 })
 vim.lsp.enable "eslint"
 
-lspconfig("svelte", {
+vim.lsp.config("svelte", {
   on_attach = on_attach,
   init = on_init,
   capabilities = svelte_lsp_capabilities,
@@ -133,7 +137,7 @@ lspconfig("svelte", {
 vim.lsp.enable "svelte"
 
 -- tailwindcss
-lspconfig("tailwindcss", {
+vim.lsp.config("tailwindcss", {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -141,6 +145,8 @@ lspconfig("tailwindcss", {
     "html",
     "css",
     "svelte",
+    "typescriptreact",
+    "javascriptreact",
   },
 })
 vim.lsp.enable "tailwindcss"

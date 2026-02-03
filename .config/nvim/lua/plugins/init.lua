@@ -64,6 +64,7 @@ return {
         "python",
         "javascript",
         "typescript",
+        "tsx",
         "svelte",
       },
     },
@@ -72,6 +73,7 @@ return {
     "windwp/nvim-ts-autotag",
     ft = {
       "html",
+      "typescriptreact",
       "svelte",
       "svx",
     },
