@@ -12,3 +12,9 @@ vim.filetype.add {
   },
 }
 vim.treesitter.language.register("markdown", "svx")
+
+vim.opt.termguicolors = true
+vim.opt.guicursor = "n-v-c:block," .. "i-ci-ve:ver25," .. "r-cr:hor20"
+vim.opt.lazyredraw = true
+vim.opt.ttyfast = true
+vim.opt.updatetime = 200
