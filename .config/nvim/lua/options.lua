@@ -18,3 +18,17 @@ vim.opt.guicursor = "n-v-c:block," .. "i-ci-ve:ver25," .. "r-cr:hor20"
 vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 vim.opt.updatetime = 200
+
+if vim.env.SSH_CONNECTION then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy "+",
+      ["*"] = require("vim.ui.clipboard.osc52").copy "*",
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste "+",
+      ["*"] = require("vim.ui.clipboard.osc52").paste "*",
+    },
+  }
+end
