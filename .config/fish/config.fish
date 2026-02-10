@@ -5,7 +5,6 @@ end
 alias pn=pnpm
 
 # api keys
-set -x GEMINI_API_KEY (pass show gemini/api_key)
 set -x CLAUDE_CODE_OAUTH_TOKEN (pass show claude/oauth-token)
 
 # Created by `pipx` on 2023-12-01 04:38:22
