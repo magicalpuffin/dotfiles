@@ -159,4 +159,51 @@ return {
     event = "LspAttach",
     opts = {},
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" },
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    version = "^18.0.0",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionCmd" },
+    opts = {
+      adapters = {
+        acp = {
+          claude_code = function()
+            return require("codecompanion.adapters").extend("claude_code", {
+              env = {
+                api_key = os.getenv "CLAUDE_CODE_OAUTH_TOKEN",
+              },
+            })
+          end,
+        },
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            env = {
+              api_key = os.getenv "GEMINI_API_KEY",
+            },
+            schema = {
+              model = {
+                default = "models/gemini-2.5-pro",
+              },
+            },
+          })
+        end,
+      },
+      interactions = {
+        chat = {
+          adapter = "gemini",
+        },
+      },
+      -- NOTE: The log_level is in `opts.opts`
+      opts = {
+        log_level = "DEBUG",
+      },
+    },
+  },
 }
