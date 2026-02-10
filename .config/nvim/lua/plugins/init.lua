@@ -21,53 +21,15 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "pyright",
-        "ruff",
-        "lua-language-server",
-        "stylua",
-        "html-lsp",
-        "css-lsp",
-        "json-lsp",
-        "yaml-language-server",
-        "yamlfmt",
-        "taplo",
-        "tailwindcss-language-server",
-        "rustywind",
-        "rust-analyzer",
-        "eslint-lsp",
-        "prettierd",
-        "biome",
-        "vtsls",
-        "typescript-language-server",
-        "svelte-language-server",
-      },
-    },
+    config = function()
+      require "configs.mason"
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "vimdoc",
-        "lua",
-        "bash",
-        "markdown",
-        "html",
-        "css",
-        "toml",
-        "yaml",
-        "json",
-        "sql",
-        "rust",
-        "python",
-        "javascript",
-        "typescript",
-        "tsx",
-        "svelte",
-      },
-    },
+    config = function()
+      require "configs.treesitter"
+    end,
   },
   {
     "windwp/nvim-ts-autotag",
@@ -108,7 +70,7 @@ return {
         preselect = cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.insert {
           ["<ArrowUp>"] = cmp.mapping.select_prev_item(),
-          ["ArrowDown>"] = cmp.mapping.select_next_item(),
+          ["<ArrowDown>"] = cmp.mapping.select_next_item(),
         },
       }
     end,
@@ -171,39 +133,8 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionCmd" },
-    opts = {
-      adapters = {
-        acp = {
-          claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {
-              env = {
-                api_key = os.getenv "CLAUDE_CODE_OAUTH_TOKEN",
-              },
-            })
-          end,
-        },
-        gemini = function()
-          return require("codecompanion.adapters").extend("gemini", {
-            env = {
-              api_key = os.getenv "GEMINI_API_KEY",
-            },
-            schema = {
-              model = {
-                default = "models/gemini-2.5-pro",
-              },
-            },
-          })
-        end,
-      },
-      interactions = {
-        chat = {
-          adapter = "gemini",
-        },
-      },
-      -- NOTE: The log_level is in `opts.opts`
-      opts = {
-        log_level = "DEBUG",
-      },
-    },
+    config = function()
+      require "configs.codecompanion"
+    end,
   },
 }

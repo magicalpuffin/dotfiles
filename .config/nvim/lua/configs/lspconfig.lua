@@ -128,7 +128,7 @@ vim.lsp.enable "eslint"
 
 vim.lsp.config("svelte", {
   on_attach = on_attach,
-  init = on_init,
+  on_init = on_init,
   capabilities = svelte_lsp_capabilities,
   filetypes = {
     "svelte",

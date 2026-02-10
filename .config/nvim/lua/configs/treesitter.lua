@@ -1,0 +1,21 @@
+require("nvim-treesitter").setup {
+  ensure_installed = {
+    "vim",
+    "vimdoc",
+    "lua",
+    "bash",
+    "markdown",
+    "html",
+    "css",
+    "toml",
+    "yaml",
+    "json",
+    "sql",
+    "rust",
+    "python",
+    "javascript",
+    "typescript",
+    "tsx",
+    "svelte",
+  },
+}

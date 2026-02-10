@@ -1,0 +1,23 @@
+require("mason").setup {
+  ensure_installed = {
+    "pyright",
+    "ruff",
+    "lua-language-server",
+    "stylua",
+    "html-lsp",
+    "css-lsp",
+    "json-lsp",
+    "yaml-language-server",
+    "yamlfmt",
+    "taplo",
+    "tailwindcss-language-server",
+    "rustywind",
+    "rust-analyzer",
+    "eslint-lsp",
+    "prettierd",
+    "biome",
+    "vtsls",
+    "typescript-language-server",
+    "svelte-language-server",
+  },
+}
