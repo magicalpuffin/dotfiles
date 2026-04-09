@@ -1,9 +1,12 @@
-require("nvim-treesitter").setup {
-  ensure_installed = {
-    "vim",
-    "vimdoc",
+-- Highlights are enabled globally by NvChad's FileType autocmd
+-- (lua/nvchad/autocmds.lua) which calls pcall(vim.treesitter.start).
+--
+-- Enable treesitter-based folding per filetype.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
     "lua",
     "bash",
+    "sh",
     "markdown",
     "html",
     "css",
@@ -15,7 +18,11 @@ require("nvim-treesitter").setup {
     "python",
     "javascript",
     "typescript",
-    "tsx",
+    "typescriptreact",
     "svelte",
   },
-}
+  callback = function()
+    vim.wo[0][0].foldmethod = "expr"
+    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end,
+})

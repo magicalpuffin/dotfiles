@@ -27,8 +27,36 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    config = function()
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "vimdoc",
+        "lua",
+        "bash",
+        "markdown",
+        "markdown_inline",
+        "html",
+        "css",
+        "toml",
+        "yaml",
+        "json",
+        "sql",
+        "rust",
+        "python",
+        "javascript",
+        "typescript",
+        "tsx",
+        "svelte",
+      },
+    },
+    config = function(_, opts)
       require "configs.treesitter"
+      vim.schedule(function()
+        require("nvim-treesitter").install(opts.ensure_installed)
+      end)
     end,
   },
   {
