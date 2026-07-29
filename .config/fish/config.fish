@@ -5,7 +5,7 @@ end
 alias pn=pnpm
 
 # api keys
-set -x CLAUDE_CODE_OAUTH_TOKEN (pass show claude/oauth-token)
+# set -x CLAUDE_CODE_OAUTH_TOKEN (pass show claude/oauth-token)
 
 # Created by `pipx` on 2023-12-01 04:38:22
 set PATH $PATH ~/.local/bin
